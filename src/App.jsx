@@ -23,6 +23,10 @@ function App() {
       text: inputText,
       sender: 'user',
       time: new Date().toLocaleTimeString(),
+      "inputType": "chat",
+      "outputType": "chat",
+      "stream": false
+
     };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
