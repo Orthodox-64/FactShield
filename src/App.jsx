@@ -23,9 +23,6 @@ function App() {
       text: inputText,
       sender: 'user',
       time: new Date().toLocaleTimeString(),
-      "inputType": "chat",
-      "outputType": "chat",
-      "stream": false
 
     };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
@@ -36,6 +33,9 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
+        "inputType": "chat",
+        "outputType": "chat",
+        "stream": false,
         body: JSON.stringify({ inputValue: inputText }),
       });
 
