@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './App.css';
+import Voice from './Voice';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -66,45 +67,48 @@ function App() {
   };
 
   return (
-    <div className="chat-container">
-      <div className="chat-header">
-        <h1>Fake News Detective</h1>
-        <p>Share any news and I'll help you verify its authenticity</p>
-      </div>
-
-      <div className="chat-messages">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
-          >
-            <div className={`avatar ${message.sender === 'user' ? 'user-avatar' : 'bot-avatar'}`}>
-              {message.sender === 'user' ? 'U' : 'B'}
-            </div>
-            <div className="message-content">
-              <p className="message-text">{message.text}</p>
-              <div className="message-time">{message.time}</div>
-            </div>
-          </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
-
-      <div className="chat-input">
-        <form onSubmit={handleSubmit} className="input-container">
-          <input
-            type="text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            placeholder="Type your message here..."
-            className="input-field"
-          />
-          <button type="submit" className="send-button">
-            Send
-          </button>
-        </form>
-      </div>
+    <div className="">
+      <Voice></Voice>
     </div>
+    // <div className="chat-container">
+    //   <div className="chat-header">
+    //     <h1>Fake News Detective</h1>
+    //     <p>Share any news and I'll help you verify its authenticity</p>
+    //   </div>
+
+    //   <div className="chat-messages">
+    //     {messages.map((message, index) => (
+    //       <div
+    //         key={index}
+    //         className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
+    //       >
+    //         <div className={`avatar ${message.sender === 'user' ? 'user-avatar' : 'bot-avatar'}`}>
+    //           {message.sender === 'user' ? 'U' : 'B'}
+    //         </div>
+    //         <div className="message-content">
+    //           <p className="message-text">{message.text}</p>
+    //           <div className="message-time">{message.time}</div>
+    //         </div>
+    //       </div>
+    //     ))}
+    //     <div ref={messagesEndRef} />
+    //   </div>
+
+    //   <div className="chat-input">
+    //     <form onSubmit={handleSubmit} className="input-container">
+    //       <input
+    //         type="text"
+    //         value={inputText}
+    //         onChange={(e) => setInputText(e.target.value)}
+    //         placeholder="Type your message here..."
+    //         className="input-field"
+    //       />
+    //       <button type="submit" className="send-button">
+    //         Send
+    //       </button>
+    //     </form>
+    //   </div>
+    // </div>
   );
 }
 
